@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("node:path");
 const app = express();
 const indexRouter = require("./routes/indexRouter");
+// const indexRouter = require("./routes/newRouter");
 
 
 app.set("views", path.join(__dirname, "views"));
@@ -9,6 +10,7 @@ app.set("view engine", "ejs");
 
 
 // we have to use our router
+// app.use("/new", newRouter);
 app.use("/", indexRouter);
 
 // app.get("/", (req, res) => {
@@ -16,9 +18,6 @@ app.use("/", indexRouter);
 // });
 
 // app.get("/new", (req, res) => res.send("Hello"));
-
-
-
 
 
 const PORT = 3000;

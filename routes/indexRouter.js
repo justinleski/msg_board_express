@@ -15,10 +15,6 @@ const messages = [
     }
 ];
 
-
-
-
-
 // authorRouter.get("/", (req, res) => res.send("All authors"));
 // authorRouter.get("/:authorId", (req, res) => {
 //   const { authorId } = req.params;
@@ -27,6 +23,9 @@ const messages = [
 
 indexRouter.get("/", (req, res) => {
   res.render("index", { title: "Mini Message Board", messages: messages });
+});
+indexRouter.get("/new", (req, res) => {
+  res.render("form", { title: "Form" });
 });
 
 module.exports = indexRouter;
