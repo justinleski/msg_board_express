@@ -4,11 +4,12 @@
     </head>
 
   <body>
-    <div>
+    <div style="display: flex; flex-direction: column; ">
         <h2>Post a New Message?</h2>
-        <button style="background-color: rgb(229, 247, 247);">Post</button>
-        <a href="/next" style="background-color: rgb(229, 247, 247); border-radius: 1em">Post BUT BETTER</a>
+        <a href="/new" style="background-color: rgb(229, 247, 247); border-radius: 1em; padding: 12px; width: 64px;">Post</a>
     </div>
+
+    
     <% messages.map((message) => { %>
         <div style="display: flex; flex-direction: column; background-color: rgb(193, 195, 197); border-radius: 1.5em; padding: 1em; gap: 8px; margin: 16px;">
             <h2><%=message.text%></h2>

@@ -2,7 +2,7 @@
 const { Router } = require("express");
 const indexRouter = Router();
 
-const messages = [
+const messages = [ // defualt values
     {
       text: "Hi there!",
       user: "Amando",
@@ -15,17 +15,22 @@ const messages = [
     }
 ];
 
-// authorRouter.get("/", (req, res) => res.send("All authors"));
-// authorRouter.get("/:authorId", (req, res) => {
-//   const { authorId } = req.params;
-//   res.send(`Author ID: ${authorId}`);
-// });
-
+// Our index router will take any requests from the index page and route them
 indexRouter.get("/", (req, res) => {
   res.render("index", { title: "Mini Message Board", messages: messages });
 });
+
+/* 
+Will route anytime we go to /new
+*/
 indexRouter.get("/new", (req, res) => {
   res.render("form", { title: "Form" });
+});
+// deals with form submission
+indexRouter.post("/new", (req, res) => {
+  // console.log(req.body);
+  messages.push({ text: req.body.messageText, user: req.body.userName, added: new Date() });
+  res.redirect("/");
 });
 
 module.exports = indexRouter;

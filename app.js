@@ -3,6 +3,7 @@ const path = require("node:path");
 const app = express();
 const indexRouter = require("./routes/indexRouter");
 // const indexRouter = require("./routes/newRouter");
+app.use(express.urlencoded({ extended: true }));
 
 
 app.set("views", path.join(__dirname, "views"));
